@@ -15,7 +15,7 @@
   margin-bottom: 10px;
   padding: 11px 30px 10px 30px;
 }
-
+/* Landing */
 .landing-title {
   height: 90px;
   padding: 0 10px;
@@ -63,4 +63,11 @@ footer {
   overflow: auto;
   padding: 0 48px;
   margin-right: 100px;
+}
+
+/* Background */
+
+.background-page {
+  padding: 0 10px;
+  margin-bottom: 20px;
 }
