@@ -71,3 +71,40 @@ footer {
   padding: 0 10px;
   margin-bottom: 20px;
 }
+
+/* back - return icon */
+
+.return-icon {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.return-icon button {
+  display: block;
+  padding: 6px 0px;
+  font-size: 20px;
+  border: transparent;
+  background-color: transparent;
+  color: #0084da;
+  cursor: pointer;
+}
+
+/* Part I */
+
+.part-i-content {
+  margin-top: 20px;
+  width: 80%;
+}
+.text-area {
+  width: 60%;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 10px;
+  background-color: #fefefe;
+  margin-top: 10px;
+}
+
+.text-area h3 {
+  font-weight: 400;
+}

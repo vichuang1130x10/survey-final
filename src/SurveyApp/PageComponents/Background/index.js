@@ -64,7 +64,7 @@ export default function App() {
             render={({ handleSubmit, reset, submitting, pristine, values }) => (
               <form onSubmit={handleSubmit} noValidate>
                 <Paper style={{ padding: 16 }}>
-                  <Grid container alignItems="flex-start" spacing={2}>
+                  <Grid container alignItems="flex-start" spacing={1}>
                     <Grid item xs={2}>
                       <Field
                         required
