@@ -1,20 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { navigate } from "@reach/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-
+import Scroll from "react-scroll";
 import { Paper, Grid, Button, Chip, TextField } from "@material-ui/core";
 
 import Back from "../../Components/Back";
-import { positiveValues, positiveValuesData } from "../../Text";
 import Card from "../../Components/Card";
 import Row from "../../Components/Row";
 
-export default function App() {
-  const [cardState, modifyCardState] = useState(positiveValuesData);
+import connect from "./connect";
+
+function App({
+  // updatePart1CharIndex,
+  getPart1Chars,
+  chars,
+  udpatePart1CharSelect,
+  resetPart1Index,
+  // resetSelectChar,
+}) {
+  // console.log(props.chars);
+  Scroll.animateScroll.scrollToTop();
+  const [cardState, modifyCardState] = useState([]);
   const [selectedState, modifySlectedState] = useState([]);
   const [text, setText] = useState("");
+
+  useEffect(() => {
+    // resetSelectChar();
+    // updatePart1CharIndex(0);
+    getPart1Chars();
+    resetPart1Index();
+    modifyCardState(chars);
+    modifySlectedState([]);
+  }, [chars]);
 
   const handleOnClick = (title) => {
     const selectedCharacter = cardState.filter(
@@ -26,7 +45,7 @@ export default function App() {
     const udpateState = cardState.map((ele) =>
       ele.character === title ? { ...ele, toggle: !ele.toggle } : ele
     );
-    console.log(udpateState);
+
     modifyCardState(udpateState);
   };
 
@@ -35,6 +54,7 @@ export default function App() {
       const updateSelectedState = selectedState.filter(
         (ele) => ele.character !== obj.character
       );
+
       modifySlectedState(updateSelectedState);
     } else {
       const updateSelectedState = [...selectedState, obj];
@@ -59,14 +79,21 @@ export default function App() {
       return;
     }
 
-    navigate(`/part1of2`, { state: selectedState });
+    udpatePart1CharSelect(selectedState);
+    navigate(`/part1-self-evaluation`);
   };
 
   const addCustomerCharacter = () => {
+    if (text === "") {
+      return;
+    }
     const newCharacter = {
       number: cardState.length + 1,
       character: text,
       toggle: false,
+      idealValue: 50,
+      realValue: 50,
+      negativeChar: `無法${text}`,
     };
     setText("");
     const updateSet = [...cardState, newCharacter];
@@ -155,3 +182,5 @@ export default function App() {
     </div>
   );
 }
+
+export default connect(App);

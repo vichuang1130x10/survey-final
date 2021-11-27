@@ -19,7 +19,6 @@ const Card = styled.div`
 `;
 
 export default function App({ title, onCardClick, toggled }) {
-  console.log(title, toggled);
   return (
     <Card toggled={toggled} onClick={() => onCardClick(title)}>
       {title}

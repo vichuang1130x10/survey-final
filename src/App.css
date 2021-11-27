@@ -3,6 +3,7 @@
   margin: 0 auto;
   overflow: auto;
   padding: 0 40px;
+  height: 100vh;
 }
 
 .App-Header {
@@ -107,4 +108,135 @@ footer {
 
 .text-area h3 {
   font-weight: 400;
+}
+
+/* Slider */
+
+.ball {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+
+  border-radius: 10%;
+  border: 2px solid #333;
+  margin: 20px auto;
+  font-size: 16px;
+}
+
+.slider-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 40px;
+}
+
+.slider-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* self-evaluation */
+
+.self-content {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.self-title {
+  text-align: center;
+}
+
+.self-silder-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 450px;
+}
+
+.self-slider {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 48%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 300px;
+}
+
+.progress-control {
+  min-height: 60px;
+  width: 320px;
+  display: grid;
+  grid-template-columns: 80px 80px 160px;
+  grid-gap: 12px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.progress-control div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-control div button {
+  font-size: 24px;
+  padding: 8px 6px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  /* color: orange; */
+}
+
+.progress-control .next-button button {
+  background: #128ae7;
+  border: 1px solid #979797;
+  border-radius: 3px;
+  font-size: 20px;
+  color: #fff;
+  letter-spacing: 0.24px;
+  width: 160px;
+  height: 60px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s;
+  margin-bottom: 20px;
+}
+
+.progress-control .next-button button:hover {
+  background: #1661d3;
+}
+
+.button {
+  background: #128ae7;
+  border: 1px solid #979797;
+  border-radius: 3px;
+  font-size: 20px;
+  color: #fff;
+  letter-spacing: 0.24px;
+  width: 160px;
+  height: 60px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s;
+  margin-bottom: 20px;
+}
+
+.question-card {
+  font-family: "Lato", sans-serif;
+  padding: 10px 0;
+}
+
+.question-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.6;
 }

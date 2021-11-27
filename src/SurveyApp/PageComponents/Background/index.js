@@ -1,5 +1,6 @@
 import { navigate } from "@reach/router";
 import { Form, Field } from "react-final-form";
+import Scroll from "react-scroll";
 import { TextField, Checkbox, Radio, Select } from "final-form-material-ui";
 import {
   Paper,
@@ -10,8 +11,9 @@ import {
   FormControl,
   FormControlLabel,
 } from "@material-ui/core";
-
+import connect from "./connect.js";
 import { title } from "../../Text";
+import React from "react";
 
 const onSubmit = async (values) => {
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -44,10 +46,13 @@ const validate = (values) => {
   }
   return errors;
 };
-
-export default function App() {
+function App({ resetState }) {
+  React.useEffect(() => {
+    resetState();
+  });
+  Scroll.animateScroll.scrollToTop();
   const handleOnclick = () => {
-    navigate("/partI");
+    navigate("/part1");
   };
   return (
     <div>
@@ -678,3 +683,5 @@ export default function App() {
     </div>
   );
 }
+
+export default connect(App);
