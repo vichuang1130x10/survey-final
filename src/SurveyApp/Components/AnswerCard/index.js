@@ -24,6 +24,11 @@ const AnswerBlock = styled.div`
     color: #fff;
   }
   margin: 10px;
+  @media (max-width: 600px) {
+    width: 40px;
+    height: 40px;
+    margin-left: 6px;
+  }
 `;
 
 const AnswerContainer = styled.div`
@@ -32,6 +37,12 @@ const AnswerContainer = styled.div`
   display: flex;
   flex-direction: row;
   height: 80px;
+  @media (max-width: 600px) {
+    width: 300px;
+    margin: 10px 0;
+
+    height: 60px;
+  }
 `;
 
 // const Numbers = [

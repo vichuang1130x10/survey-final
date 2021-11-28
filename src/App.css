@@ -485,11 +485,11 @@ footer {
   }
 
   .self-title h2 {
-    font-size: 18px;
+    font-size: 16px;
   }
   .self-slider h3 {
     margin-top: 20px;
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .self-slider {
@@ -508,5 +508,15 @@ footer {
   .part2-title h3 {
     font-size: 16px;
     flex: 0 0 50%;
+  }
+
+  .progress-control {
+    min-height: 60px;
+    width: 280px;
+    display: grid;
+    grid-template-columns: 60px 60px 120px;
+    grid-gap: 12px;
+    margin: 0 auto;
+    margin-bottom: 30px;
   }
 }
