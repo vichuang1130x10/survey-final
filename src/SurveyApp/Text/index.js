@@ -131,3 +131,12 @@ export const Part4Questions = [
   "我常會感到家庭責任的壓力，所以工作時很難專心",
   "在家庭生活中有用的行為，並不能幫助我有效工作",
 ];
+
+
+export const Numbers = [
+  { id: "1", isSelected: false },
+  { id: "2", isSelected: false },
+  { id: "3", isSelected: false },
+  { id: "4", isSelected: false },
+  { id: "5", isSelected: false },
+];

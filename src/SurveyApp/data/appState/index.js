@@ -14,10 +14,28 @@ const initialState = {
   //   workCharAssessmentValue: [],
   //   homeCharacters: [],
   //   homeCharAssessmentValue: [],
-  part2AAnswer: [], //[5,5,5,5]
-  part2BAnswer: [], //[5,5,5,5]
-  part3Answer: [], //[5,5,5,5,4,4,4,4,3,3]
-  Part4Answer: [], //[1,2,3,4,5,1]
+  part2AAnswer: { 1: "", 2: "", 3: "", 4: "" },
+  part2BAnswer: { 1: "", 2: "", 3: "", 4: "" }, //[5,5,5,5]
+  part3Answer: {
+    1: "",
+    2: "",
+    3: "",
+    4: "",
+    5: "",
+    6: "",
+    7: "",
+    8: "",
+    9: "",
+    10: "",
+  },
+  Part4Answer: {
+    1: "",
+    2: "",
+    3: "",
+    4: "",
+    5: "",
+    6: "",
+  }, //[1,2,3,4,5,1]
   email: "", // "vic.huang11x@gmail.com"
   part1Id: 0, // 0 - 1
   part2Id: 0, // 0 -1
@@ -30,7 +48,6 @@ const initialState = {
   //   part2Of2IdealValue: [],
   //   part2Of2RealValue: [],
   part2Index: 0, // 0- 3
-  part4Index: 0, // 0-5
 };
 
 const createActionWithName = (name) => `app/tasks/${name}`;
@@ -155,6 +172,17 @@ export default function reducer(state = initialState, action = {}) {
       }
       return { ...state, part2Id: newId2 };
 
+    case UPDATE_ANSWER_CONTENT:
+      let newState = Object.assign({}, state);
+      if (action.part === "part2") {
+        if (newState.part2Id === 0) {
+        }
+      } else if (action.part === "part3") {
+      } else {
+      }
+
+      return newState;
+
     default:
       return state;
   }
@@ -181,6 +209,17 @@ export const UPDATE_REAL_VALUE = createActionWithName("UPDATE_REAL_VALUE");
 export const UPDATE_PART1_ID = createActionWithName("UPDATE_PART1_ID");
 export const UPDATE_PART2_ID = createActionWithName("UPDATE_PART2_ID");
 export const RESET_PART_1_INDEX = createActionWithName("RESET_PART_1_INDEX");
+export const UPDATE_ANSWER_CONTENT = createActionWithName(
+  "UPDATE_ANSWER_CONTENT"
+);
+
+export const updateAnswerContent = (part, id) => {
+  return {
+    type: UPDATE_ANSWER_CONTENT,
+    part,
+    id,
+  };
+};
 
 export const resetPart1Index = () => {
   return {

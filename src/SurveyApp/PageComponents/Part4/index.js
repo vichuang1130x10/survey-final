@@ -4,12 +4,14 @@ import Back from "../../Components/Back";
 import { navigate } from "@reach/router";
 import QuestionCard from "../../Components/QuestionCard";
 import AnswerCard from "../../Components/AnswerCard";
-import { Part4Questions } from "../../Text";
+import { Part4Questions, Numbers } from "../../Text";
 import Button from "../../Components/Button";
 
 function App() {
   Scroll.animateScroll.scrollToTop();
-  const handlePart4Next = () => {};
+  const handlePart4Next = () => {
+    navigate("/finish");
+  };
 
   return (
     <div className="container">
@@ -28,7 +30,7 @@ function App() {
             <div key={i}>
               <QuestionCard title={q} id={i} />
               <h4>1 =非常不同意 2 =很少 3=普通 4 =同意 5 =非常同意</h4>
-              <AnswerCard />
+              <AnswerCard part={"part4"} question={i} numbers={Numbers} />
             </div>
           ))}
         </Paper>

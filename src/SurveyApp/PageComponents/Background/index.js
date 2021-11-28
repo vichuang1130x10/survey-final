@@ -1,7 +1,7 @@
 import { navigate } from "@reach/router";
 import { Form, Field } from "react-final-form";
 import Scroll from "react-scroll";
-import { TextField, Checkbox, Radio, Select } from "final-form-material-ui";
+import { TextField, Radio } from "final-form-material-ui";
 import {
   Paper,
   Grid,

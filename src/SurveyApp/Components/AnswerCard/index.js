@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
+import styled, { css } from "styled-components";
 import connect from "./connect";
 
 const AnswerBlock = styled.div`
@@ -13,9 +13,14 @@ const AnswerBlock = styled.div`
   border: 1px solid #333;
   transition: all 0.3s;
   margin-left: 20px;
-
+  ${(props) =>
+    props.isSelected &&
+    css`
+      background: #00bf6f;
+      color: #fff;
+    `}
   &:hover {
-    background-color: #128ae7;
+    background-color: #00bf60;
     color: #fff;
   }
   margin: 10px;
@@ -29,22 +34,38 @@ const AnswerContainer = styled.div`
   height: 80px;
 `;
 
-const Numbers = [
-  { id: "1", isSelected: false },
-  { id: "2", isSelected: false },
-  { id: "3", isSelected: false },
-  { id: "4", isSelected: false },
-  { id: "5", isSelected: false },
-];
+// const Numbers = [
+//   { id: "1", isSelected: false },
+//   { id: "2", isSelected: false },
+//   { id: "3", isSelected: false },
+//   { id: "4", isSelected: false },
+//   { id: "5", isSelected: false },
+// ];
 
-function App({}) {
+function App({ part, question, numbers }) {
+  const [nums, updateNumbers] = useState([]);
+
+  React.useEffect(() => {
+    updateNumbers(numbers);
+  }, [numbers]);
+
   const handleClick = (obj) => {
-    console.log(obj.id);
+    const newNumbers = nums.map((ele) =>
+      ele.id === obj.id
+        ? Object.assign({}, { ...obj, isSelected: !obj.isSelected })
+        : { ...ele, isSelected: false }
+    );
+    console.log(newNumbers);
+    updateNumbers(newNumbers);
   };
   return (
     <AnswerContainer>
-      {Numbers.map((obj, i) => (
-        <AnswerBlock key={i} onClick={() => handleClick(obj)}>
+      {nums.map((obj, i) => (
+        <AnswerBlock
+          key={i}
+          onClick={() => handleClick(obj)}
+          isSelected={obj.isSelected}
+        >
           {obj.id}
         </AnswerBlock>
       ))}

@@ -2,7 +2,7 @@ import { Paper } from "@material-ui/core";
 import Scroll from "react-scroll";
 import Back from "../../Components/Back";
 import { navigate } from "@reach/router";
-import { Part3Adjs } from "../../Text";
+import { Part3Adjs, Numbers } from "../../Text";
 import QuestionCard from "../../Components/QuestionCard";
 import AnswerCard from "../../Components/AnswerCard";
 import Button from "../../Components/Button";
@@ -33,7 +33,7 @@ function App() {
             <div key={i}>
               <QuestionCard title={q} id={i} />
               <h4>1 =從來沒有 2 =很少 3=普通 4 =稍微多次 5 =經常</h4>
-              <AnswerCard />
+              <AnswerCard part={"part3"} question={i} numbers={Numbers} />
             </div>
           ))}
         </Paper>

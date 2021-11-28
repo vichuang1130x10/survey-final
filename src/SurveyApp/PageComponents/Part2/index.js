@@ -4,7 +4,7 @@ import Scroll from "react-scroll";
 import Back from "../../Components/Back";
 import QuestionCard from "../../Components/QuestionCard";
 import AnswerCard from "../../Components/AnswerCard";
-import { Part2AQuestions, Part2BQuestions } from "../../Text";
+import { Part2AQuestions, Part2BQuestions, Numbers } from "../../Text";
 
 import { Paper } from "@material-ui/core";
 
@@ -15,6 +15,7 @@ function App({ part2Id, updatePart2Id }) {
   Scroll.animateScroll.scrollToTop();
 
   const [question, setQuestion] = useState([]);
+  const [numbers, updateNumbers] = useState([]);
 
   useEffect(() => {
     let qs;
@@ -23,11 +24,15 @@ function App({ part2Id, updatePart2Id }) {
     } else {
       qs = Part2BQuestions;
     }
+    console.log("part2");
     setQuestion(qs);
+    console.log(Numbers);
+    updateNumbers(Numbers.map((a) => ({ ...a })));
   }, [part2Id]);
 
   const handlePart2Next = () => {
     if (part2Id === 0) {
+      // updateNumbers([])
       updatePart2Id();
     } else {
       updatePart2Id();
@@ -58,7 +63,7 @@ function App({ part2Id, updatePart2Id }) {
             <div key={i}>
               <QuestionCard title={q} id={i} />
               <h4>1 =非常不同意 2 =很少 3=普通 4 =同意 5 =非常同意</h4>
-              <AnswerCard />
+              <AnswerCard part={"part2"} question={i} numbers={numbers} />
             </div>
           ))}
         </Paper>

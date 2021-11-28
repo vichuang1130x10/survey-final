@@ -9,6 +9,7 @@ import Part1SelfEva from "./PageComponents/Part1SelfEva";
 import Part2 from "./PageComponents/Part2";
 import Part3 from "./PageComponents/Part3";
 import Part4 from "./PageComponents/Part4";
+import Finish from "./PageComponents/Finish";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Part2 path="/part2" />
         <Part3 path="/part3" />
         <Part4 path="/part4" />
+        <Finish path="/finish" />
       </Router>
     </Provider>
   );
