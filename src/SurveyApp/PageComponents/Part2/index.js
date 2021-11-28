@@ -9,6 +9,7 @@ import { Part2AQuestions, Part2BQuestions } from "../../Text";
 import { Paper } from "@material-ui/core";
 
 import connect from "./connect";
+import Button from "../../Components/Button";
 
 function App({ part2Id, updatePart2Id }) {
   Scroll.animateScroll.scrollToTop();
@@ -50,19 +51,19 @@ function App({ part2Id, updatePart2Id }) {
 
       <div className="self-content">
         <Paper style={{ padding: "20px" }}>
-          <div style={{ display: "flex" }}>
+          <div className="part2-title">
             <h3>妳是否同意以下句子？ </h3>
-            <h3 style={{ marginLeft: "100px" }}>1=完全不同意 5=完全同意</h3>
           </div>
           {question.map((q, i) => (
             <div key={i}>
               <QuestionCard title={q} id={i} />
+              <h4>1 =非常不同意 2 =很少 3=普通 4 =同意 5 =非常同意</h4>
               <AnswerCard />
             </div>
           ))}
         </Paper>
-        <div className="next-button">
-          <button onClick={() => handlePart2Next()}>下一步</button>
+        <div>
+          <Button onClick={() => handlePart2Next()}>下一步</Button>
         </div>
       </div>
     </div>

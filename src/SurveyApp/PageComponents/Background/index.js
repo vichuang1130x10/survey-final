@@ -192,22 +192,22 @@ function App({ resetState }) {
                         </RadioGroup>
                       </FormControl>
                     </Grid>
+                    <Grid>育有子女人數：</Grid>
                     <Grid item xs={2}>
                       <Field
                         required
                         name="chirdrenNumber"
                         component={TextField}
                         type="number"
-                        label="育有子女人數："
                       />
                     </Grid>
+                    <Grid>最小的子女年齡</Grid>
                     <Grid item xs={2}>
                       <Field
                         required
                         name="youngest"
                         component={TextField}
                         type="number"
-                        label="最小的子女年齡"
                       />
                     </Grid>
                     <Grid item xs={12}>
@@ -496,23 +496,31 @@ function App({ resetState }) {
                         color: "red",
                       }}
                     >
-                      請註明兼職每週工作時數
-                      <Grid item xs={8}>
-                        <Field
-                          fullWidth
-                          name="workingHour"
-                          component={TextField}
-                          type="number"
-                        />
+                      <Grid container alignItems="flex-start" spacing={1}>
+                        <Grid item xs={12}>
+                          請註明兼職每週工作時數
+                        </Grid>
+
+                        <Grid item xs={2}>
+                          <Field
+                            fullWidth
+                            name="workingHour"
+                            component={TextField}
+                            type="number"
+                          />
+                        </Grid>
                       </Grid>
                     </div>
                     <Grid item xs={12}>
+                      個人收入佔家庭總入息比例(%) :
+                    </Grid>
+                    <Grid item xs={2}>
                       <Field
                         required
+                        fullWidth
                         name="income"
                         component={TextField}
                         type="number"
-                        label="個人收入佔家庭總入息比例(%) : "
                       />
                     </Grid>
                     <Grid item xs={12}>
@@ -583,7 +591,7 @@ function App({ resetState }) {
                       }}
                     >
                       請註明每週協助家務時數
-                      <Grid item xs={8}>
+                      <Grid item xs={4}>
                         <Field
                           fullWidth
                           name="ptWorkingHour"
@@ -592,13 +600,13 @@ function App({ resetState }) {
                         />
                       </Grid>
                     </div>
+                    <Grid>丈夫每週協助家事時數(如適用)(小時) : </Grid>
                     <Grid item xs={12}>
                       <Field
                         required
                         name="husbandHelp"
                         component={TextField}
                         type="number"
-                        label="丈夫每週協助家事時數(如適用)(小時) : "
                       />
                     </Grid>
 
@@ -651,7 +659,7 @@ function App({ resetState }) {
                       }}
                     >
                       請註明其他填寫地點
-                      <Grid item xs={8}>
+                      <Grid item xs={12}>
                         <Field
                           fullWidth
                           name="otherPlace"

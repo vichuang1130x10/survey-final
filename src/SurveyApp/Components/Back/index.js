@@ -15,7 +15,7 @@ const Back = ({ className, thunk }) => (
       <span style={{ marginRight: "10px" }}>
         <FontAwesomeIcon icon={faChevronLeft} size="lg" />
       </span>
-      回上一頁
+      返回上一步
     </button>
   </div>
 );

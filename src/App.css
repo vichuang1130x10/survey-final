@@ -3,6 +3,7 @@
   margin: 0 auto;
   overflow: auto;
   padding: 0 40px;
+  margin-bottom: 80px;
   height: 100vh;
 }
 
@@ -108,6 +109,15 @@ footer {
 
 .text-area h3 {
   font-weight: 400;
+}
+
+.input-container {
+  display: flex;
+}
+
+.custom-container {
+  margin-left: 10px;
+  margin-top: 20px;
 }
 
 /* Slider */
@@ -239,4 +249,264 @@ footer {
   font-size: 16px;
   font-weight: 700;
   line-height: 1.6;
+}
+/* part II */
+
+.part2-title {
+  display: flex;
+}
+
+/* for pad */
+@media (max-width: 1100px), print {
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    overflow: auto;
+    padding: 0 40px;
+    margin-bottom: 2em;
+    min-height: 800px;
+  }
+
+  .App-Header {
+    height: 70px;
+    width: 100%;
+    border-style: solid;
+    border-width: 0;
+    border-color: #d6d6d6;
+    box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 10%);
+    margin-bottom: 10px;
+    padding: 11px 30px 10px 30px;
+  }
+  /* Landing */
+  .landing-title {
+    height: 90px;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .landing-title h2 {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .landing-page {
+    display: flex;
+    margin-bottom: 80px;
+    width: 100%;
+  }
+
+  .landing-card {
+    width: 48%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .landing-card p {
+    font-size: 16px;
+    letter-spacing: 2px;
+    align-self: flex-start;
+  }
+  .landing-card .hero {
+    width: 100%;
+  }
+  footer {
+    width: 100%;
+    background-color: #072b38;
+    color: #ffffff;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 200px;
+    display: flex;
+
+    justify-content: flex-start;
+  }
+  .footer {
+    padding: 20px 48px;
+  }
+
+  .part-i-content {
+    margin-top: 20px;
+    width: 80%;
+  }
+  .text-area {
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 10px;
+    background-color: #fefefe;
+    margin-top: 10px;
+  }
+  .text-area h3 {
+    font-weight: 400;
+  }
+
+  .self-title h2 {
+    font-size: 18px;
+  }
+  .self-slider h3 {
+    margin-top: 20px;
+    font-size: 16px;
+  }
+
+  .self-slider {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 50%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 300px;
+  }
+
+  .part2-title {
+    justify-content: space-between;
+  }
+  .part2-title h3 {
+    font-size: 16px;
+    flex: 0 0 50%;
+  }
+}
+/* for phone */
+@media (max-width: 600px), print {
+  .container {
+    width: 100%;
+    margin: 0 auto;
+    overflow: auto;
+    padding: 0 40px;
+    margin-bottom: 2em;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    row-gap: 50px;
+  }
+
+  .App-Header {
+    height: 70px;
+    width: 100%;
+    border-style: solid;
+    border-width: 0;
+    border-color: #d6d6d6;
+    box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 10%);
+    margin-bottom: 10px;
+    padding: 11px 30px 10px 30px;
+  }
+  /* Landing */
+  .landing-title {
+    height: 90px;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .landing-title h2 {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .landing-page {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 20px;
+    width: 100%;
+    align-items: center;
+    row-gap: 100px;
+  }
+
+  .landing-card {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .landing-card p {
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+  .landing-card .hero {
+    width: 360px;
+  }
+
+  footer {
+    background-color: #072b38;
+    color: #ffffff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 250px;
+  }
+
+  .return-icon button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .part-i-content {
+    width: 80%;
+  }
+  .text-area {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 10px;
+    background-color: #fefefe;
+    margin-top: 10px;
+  }
+  .text-area h3 {
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .custom-container {
+    margin-left: 0px;
+    margin-top: 10px;
+  }
+
+  .self-content {
+    width: 100%;
+
+    margin-top: 0px;
+  }
+
+  .self-title h2 {
+    font-size: 18px;
+  }
+  .self-slider h3 {
+    margin-top: 20px;
+    font-size: 16px;
+  }
+
+  .self-slider {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 50%;
+    justify-content: center;
+    align-items: center;
+
+    height: 300px;
+  }
+
+  .part2-title {
+    justify-content: space-between;
+  }
+  .part2-title h3 {
+    font-size: 16px;
+    flex: 0 0 50%;
+  }
 }

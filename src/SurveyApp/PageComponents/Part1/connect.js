@@ -9,6 +9,7 @@ import {
 
 const mapStateToProps = (state) => ({
   chars: state.app.part1Chars,
+  part1Id: state.app.part1Id,
 });
 
 const mapDispatchToProps = {

@@ -18,6 +18,7 @@ function App({
   chars,
   udpatePart1CharSelect,
   resetPart1Index,
+  part1Id,
   // resetSelectChar,
 }) {
   // console.log(props.chars);
@@ -74,8 +75,13 @@ function App({
   };
 
   const handleNextStep = () => {
-    if (selectedState.length !== 5) {
+    if (selectedState.length < 5) {
       alert("請選擇5個特質");
+      return;
+    }
+
+    if (selectedState.length > 5) {
+      alert("只能選5個特質");
       return;
     }
 
@@ -104,7 +110,7 @@ function App({
     <div className="container">
       <Back className="return-icon" />
       <div className="part-i-title">
-        <h2>第1.1部份 </h2>
+        <h2>第{part1Id === 0 ? "1.1" : "1.2"}部份 </h2>
         <hr />
         <div className="text-area">
           <h3>
@@ -145,7 +151,7 @@ function App({
           </Grid>
           <div style={{ marginTop: "20px" }}>
             <h4 style={{ marginBottom: "20px" }}> 自定特質 : </h4>
-            <div style={{ display: "flex" }}>
+            <div className="input-container">
               <TextField
                 id="outlined-basic"
                 label="特質"
@@ -153,7 +159,7 @@ function App({
                 value={text}
                 onChange={(e) => setText(e.target.value)}
               />
-              <div style={{ marginLeft: "10px", marginTop: "20px" }}>
+              <div className="custom-container">
                 <Button
                   variant="outlined"
                   color="primary"
