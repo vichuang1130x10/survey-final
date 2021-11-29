@@ -1,5 +1,5 @@
 import { Paper } from "@material-ui/core";
-import Scroll from "react-scroll";
+import React, { useEffect } from "react";
 import Back from "../../Components/Back";
 import { navigate } from "@reach/router";
 import { Part3Adjs, Numbers } from "../../Text";
@@ -8,8 +8,9 @@ import AnswerCard from "../../Components/AnswerCard";
 import Button from "../../Components/Button";
 
 function App() {
-  Scroll.animateScroll.scrollToTop();
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const handlePart3Next = () => {
     navigate("/part4");
   };
@@ -41,6 +42,7 @@ function App() {
           <Button onClick={() => handlePart3Next()}>下一步</Button>
         </div>
       </div>
+      <div style={{ marginTop: "100px", height: "50px" }}></div>
     </div>
   );
 }

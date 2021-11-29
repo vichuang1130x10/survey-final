@@ -1,21 +1,33 @@
 .container {
-  max-width: 1440px;
+  max-width: 1400px;
   margin: 0 auto;
-  overflow: auto;
   padding: 0 40px;
   margin-bottom: 80px;
-  height: 100vh;
 }
 
 .App-Header {
-  height: 70px;
+  /* height: 70px; */
   width: 100%;
   border-style: solid;
   border-width: 0;
   border-color: #d6d6d6;
-  box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 10%);
+  /* box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 10%); */
   margin-bottom: 10px;
   padding: 11px 30px 10px 30px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  transition: background 0.4s;
+  box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 6%);
+  z-index: 100;
+  transform: translated3d(0, 0, 0);
+
+  max-width: 100%;
+  min-height: 80px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
 }
 /* Landing */
 .landing-title {
@@ -51,18 +63,17 @@ footer {
   width: 100%;
   background-color: #072b38;
   color: #ffffff;
-  position: fixed;
-  left: 0;
-  bottom: 0;
+  overflow: hidden;
   height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 .footer {
-  max-width: 1440px;
+  max-width: 1400px;
+  max-width: 100%;
   margin: 0 auto;
-  overflow: auto;
+
   padding: 0 48px;
   margin-right: 100px;
 }
@@ -264,7 +275,6 @@ footer {
     overflow: auto;
     padding: 0 40px;
     margin-bottom: 2em;
-    min-height: 800px;
   }
 
   .App-Header {
@@ -293,7 +303,7 @@ footer {
 
   .landing-page {
     display: flex;
-    margin-bottom: 80px;
+
     width: 100%;
   }
 
@@ -318,10 +328,8 @@ footer {
     width: 100%;
     background-color: #072b38;
     color: #ffffff;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    height: 200px;
+    overflow: hidden;
+
     display: flex;
 
     justify-content: flex-start;
@@ -387,6 +395,8 @@ footer {
     justify-content: flex-start;
     align-items: center;
     row-gap: 50px;
+
+    min-height: 1000px;
   }
 
   .App-Header {
@@ -438,11 +448,10 @@ footer {
   footer {
     background-color: #072b38;
     color: #ffffff;
-    position: relative;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 250px;
   }
 
   .return-icon button {

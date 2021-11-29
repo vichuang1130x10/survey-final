@@ -1,12 +1,11 @@
 import { Form, Field } from "react-final-form";
-import Scroll from "react-scroll";
+import React, { useEffect } from "react";
 import { TextField } from "final-form-material-ui";
 import { Paper, Grid, Button } from "@material-ui/core";
 import connect from "./connect.js";
 import Back from "../../Components/Back";
 
 function App() {
-  Scroll.animateScroll.scrollToTop();
   const handleOnclick = () => {};
   const onSubmit = async (values) => {
     const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -20,6 +19,10 @@ function App() {
     }
     return errors;
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="container">
@@ -72,6 +75,7 @@ function App() {
           )}
         />
       </div>
+      <div style={{ marginTop: "100px", height: "50px" }}></div>
     </div>
   );
 }

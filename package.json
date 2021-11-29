@@ -25,7 +25,6 @@
     "react-footer": "^0.0.0",
     "react-redux": "^7.2.6",
     "react-scripts": "4.0.3",
-    "react-scroll": "^1.8.4",
     "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9",
     "redux-logger": "^3.0.6",

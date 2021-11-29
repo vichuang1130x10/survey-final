@@ -1,6 +1,6 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useEffect } from "react";
 import { navigate } from "@reach/router";
-import Scroll from "react-scroll";
+
 import Back from "../../Components/Back";
 import SliderBar from "../../Components/Slider";
 import { Paper } from "@material-ui/core";
@@ -23,8 +23,9 @@ function App({
   updatePart1Id,
 }) {
   // console.log(charObj);
-
-  Scroll.animateScroll.scrollToTop();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [value1, setValue1] = useState(50);
   const [value2, setValue2] = useState(50);
 
@@ -108,6 +109,7 @@ function App({
           ) : null}
         </div>
       </div>
+      <div style={{ marginTop: "100px", height: "50px" }}></div>
     </div>
   ) : (
     <div>

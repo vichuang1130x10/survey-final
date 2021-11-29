@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { navigate } from "@reach/router";
-import Scroll from "react-scroll";
+
 import Back from "../../Components/Back";
 import QuestionCard from "../../Components/QuestionCard";
 import AnswerCard from "../../Components/AnswerCard";
@@ -12,19 +12,18 @@ import connect from "./connect";
 import Button from "../../Components/Button";
 
 function App({ part2Id, updatePart2Id }) {
-  Scroll.animateScroll.scrollToTop();
-
   const [question, setQuestion] = useState([]);
   const [numbers, updateNumbers] = useState([]);
 
   useEffect(() => {
+    window.scroll(0, 0);
     let qs;
     if (part2Id === 0) {
       qs = Part2AQuestions;
     } else {
       qs = Part2BQuestions;
     }
-    console.log("part2");
+
     setQuestion(qs);
     console.log(Numbers);
     updateNumbers(Numbers.map((a) => ({ ...a })));
@@ -71,6 +70,7 @@ function App({ part2Id, updatePart2Id }) {
           <Button onClick={() => handlePart2Next()}>下一步</Button>
         </div>
       </div>
+      <div style={{ marginTop: "100px", height: "50px" }}></div>
     </div>
   );
 }

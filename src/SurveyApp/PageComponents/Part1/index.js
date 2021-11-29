@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { navigate } from "@reach/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import Scroll from "react-scroll";
+
 import { Paper, Grid, Button, Chip, TextField } from "@material-ui/core";
 
 import Back from "../../Components/Back";
@@ -21,8 +21,6 @@ function App({
   part1Id,
   // resetSelectChar,
 }) {
-  // console.log(props.chars);
-  Scroll.animateScroll.scrollToTop();
   const [cardState, modifyCardState] = useState([]);
   const [selectedState, modifySlectedState] = useState([]);
   const [text, setText] = useState("");
@@ -30,6 +28,7 @@ function App({
   useEffect(() => {
     // resetSelectChar();
     // updatePart1CharIndex(0);
+    window.scrollTo(0, 0);
     getPart1Chars();
     resetPart1Index();
     modifyCardState(chars);
@@ -185,6 +184,7 @@ function App({
           </div>
         </Paper>
       </div>
+      <div style={{ marginTop: "100px", height: "50px" }}></div>
     </div>
   );
 }

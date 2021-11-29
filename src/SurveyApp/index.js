@@ -14,17 +14,19 @@ import Finish from "./PageComponents/Finish";
 function App() {
   return (
     <Provider store={store}>
-      <Header />
-      <Router>
-        <Landing path="/" />
-        <Background path="/background" />
-        <Part1 path="/part1" />
-        <Part1SelfEva path="/part1-self-evaluation" />
-        <Part2 path="/part2" />
-        <Part3 path="/part3" />
-        <Part4 path="/part4" />
-        <Finish path="/finish" />
-      </Router>
+      <div style={{ position: "relative", height: "100vh" }}>
+        <Header />
+        <Router>
+          <Landing path="/" />
+          <Background path="/background" />
+          <Part1 path="/part1" />
+          <Part1SelfEva path="/part1-self-evaluation" />
+          <Part2 path="/part2" />
+          <Part3 path="/part3" />
+          <Part4 path="/part4" />
+          <Finish path="/finish" />
+        </Router>
+      </div>
     </Provider>
   );
 }

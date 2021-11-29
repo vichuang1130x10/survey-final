@@ -1,0 +1,59 @@
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+  display: block;
+  font-family: sans-serif;
+  font-size: 10px;
+  position: relative;
+  min-height: 100%;
+}
+
+:root {
+  --buy-now-button-color: #fb7813;
+}
+
+body {
+  font-size: 14px;
+  background-color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.428;
+  color: #333;
+  margin: 0;
+}
+
+.NavigationBar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  transition: background 0.4s;
+  box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 6%);
+}
+
+.NavigationBar.mod-desktop {
+  z-index: 100;
+  transform: translated3d(0, 0, 0);
+}
+
+.nav-bg-color {
+  background: rbga(255, 255, 255, 0.98);
+}
+
+.NavigationBar-container {
+  width: 1400px;
+  max-width: 100%;
+  min-height: 80px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+@media (min-width: 1200px) {
+  .visible-lg {
+    display: block;
+  }
+}

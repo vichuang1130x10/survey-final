@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { navigate } from "@reach/router";
 import hero from "../../../hero.svg";
@@ -5,11 +6,14 @@ import { title } from "../../Text";
 import Button from "../../Components/Button";
 
 export default function App() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const handleOnClick = () => {
     navigate("/background");
   };
   return (
-    <div>
+    <>
       <div className="container">
         <div className="landing-title">
           <h2>{title}</h2>
@@ -33,17 +37,17 @@ export default function App() {
             <img src={hero} className="hero" alt="hero" />
           </div>
         </div>
-        <footer>
-          <div className="footer">
-            <p>東吳大學 心理學系</p>
-            <p>臨床組研究生</p>
-            <p>袁慧萍 敬上</p>
-            <p>指導教授：曾幼涵博士</p>
-            <p>2021年11月</p>
-            <p>聯絡電話：(886-) 0908 452 513 / 電郵：yuensiuping@gmail.com</p>
-          </div>
-        </footer>
       </div>
-    </div>
+      <footer>
+        <div className="footer">
+          <p>東吳大學 心理學系</p>
+          <p>臨床組研究生</p>
+          <p>袁慧萍 敬上</p>
+          <p>指導教授：曾幼 涵博士</p>
+          <p>2021年11月</p>
+          <p>聯絡電話：(886-) 0908 452 513 / 電郵：yuensiuping@gmail.com</p>
+        </div>
+      </footer>
+    </>
   );
 }
