@@ -10,12 +10,9 @@ import { positiveValuesData, positiveHomeValuesData } from "../../Text";
 
 const initialState = {
   background: {}, // collect background data when user submit
-  //   workCharacters: [],
-  //   workCharAssessmentValue: [],
-  //   homeCharacters: [],
-  //   homeCharAssessmentValue: [],
+
   part2AAnswer: { 1: "", 2: "", 3: "", 4: "" },
-  part2BAnswer: { 1: "", 2: "", 3: "", 4: "" }, //[5,5,5,5]
+  part2BAnswer: { 1: "", 2: "", 3: "", 4: "" },
   part3Answer: {
     1: "",
     2: "",
@@ -183,6 +180,9 @@ export default function reducer(state = initialState, action = {}) {
 
       return newState;
 
+    case UPDATE_BACKGROUND:
+      return { ...state, backgrond: action.backgrond };
+
     default:
       return state;
   }
@@ -212,6 +212,15 @@ export const RESET_PART_1_INDEX = createActionWithName("RESET_PART_1_INDEX");
 export const UPDATE_ANSWER_CONTENT = createActionWithName(
   "UPDATE_ANSWER_CONTENT"
 );
+
+export const UPDATE_BACKGROUND = createActionWithName("UPDATE_BACKGROUND");
+
+export const updateBackground = (backgrond) => {
+  return {
+    type: UPDATE_BACKGROUND,
+    backgrond,
+  };
+};
 
 export const updateAnswerContent = (part, id) => {
   return {

@@ -14,7 +14,14 @@ import Finish from "./PageComponents/Finish";
 function App() {
   return (
     <Provider store={store}>
-      <div style={{ position: "relative", height: "100vh" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          minHeight: "100%",
+        }}
+      >
         <Header />
         <Router>
           <Landing path="/" />

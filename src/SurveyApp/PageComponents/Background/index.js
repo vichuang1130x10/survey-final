@@ -1,7 +1,7 @@
 import { navigate } from "@reach/router";
 import { Form, Field } from "react-final-form";
 
-import { TextField, Radio } from "final-form-material-ui";
+import { TextField, Radio, Input } from "final-form-material-ui";
 import {
   Paper,
   Grid,
@@ -26,8 +26,8 @@ const validate = (values) => {
     errors.age = "Required";
   }
 
-  if (values.age <= 0) {
-    errors.age = "Wrong Value";
+  if (values.age <= 12) {
+    errors.age = "請再次確認年齡";
   }
 
   if (values.chirdrenNumber < 0) {
@@ -41,18 +41,20 @@ const validate = (values) => {
   if (!values.marriage) {
     errors.marriage = "Required";
   }
+
   if (!values.email) {
     errors.email = "Required";
   }
   return errors;
 };
-function App({ resetState }) {
+function App({ resetState, updateBackground }) {
   React.useEffect(() => {
     resetState();
     window.scrollTo(0, 0);
   }, []);
 
-  const handleOnclick = () => {
+  const handleOnclick = (v) => {
+    updateBackground(v);
     navigate("/part1");
   };
   return (
@@ -80,13 +82,14 @@ function App({ resetState }) {
                     />
                   </Grid>
                   <Grid item xs={12}>
-                    <FormControl component="fieldset">
+                    <FormControl required component="fieldset">
                       <FormLabel component="legend">婚姻狀況：</FormLabel>
                       <RadioGroup row>
                         <FormControlLabel
                           label="已婚"
                           control={
                             <Field
+                              required
                               name="marriage"
                               component={Radio}
                               type="radio"
@@ -98,6 +101,7 @@ function App({ resetState }) {
                           label="離婚/鰥寡"
                           control={
                             <Field
+                              required
                               name="marriage"
                               component={Radio}
                               type="radio"
@@ -109,6 +113,7 @@ function App({ resetState }) {
                           label="未婚"
                           control={
                             <Field
+                              required
                               name="marriage"
                               component={Radio}
                               type="radio"
@@ -674,7 +679,7 @@ function App({ resetState }) {
                       color="primary"
                       type="submit"
                       disabled={submitting}
-                      onClick={() => handleOnclick()}
+                      onClick={() => handleOnclick(values)}
                     >
                       下一頁
                     </Button>

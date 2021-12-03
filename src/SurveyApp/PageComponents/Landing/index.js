@@ -13,7 +13,7 @@ export default function App() {
     navigate("/background");
   };
   return (
-    <>
+    <div className="landing-vh">
       <div className="container">
         <div className="landing-title">
           <h2>{title}</h2>
@@ -48,6 +48,6 @@ export default function App() {
           <p>聯絡電話：(886-) 0908 452 513 / 電郵：yuensiuping@gmail.com</p>
         </div>
       </footer>
-    </>
+    </div>
   );
 }
