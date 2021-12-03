@@ -15,11 +15,11 @@ import connect from "./connect.js";
 import { title } from "../../Text";
 import React from "react";
 
-const onSubmit = async (values) => {
-  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-  await sleep(300);
-  window.alert(JSON.stringify(values, 0, 2));
-};
+// const onSubmit = async (values) => {
+//   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+//   await sleep(300);
+//   window.alert(JSON.stringify(values, 0, 2));
+// };
 const validate = (values) => {
   const errors = {};
   if (!values.age) {
@@ -53,7 +53,8 @@ function App({ resetState, updateBackground }) {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleOnclick = (v) => {
+  const onSubmit = (v) => {
+    console.log("submit");
     updateBackground(v);
     navigate("/part1");
   };
@@ -604,7 +605,9 @@ function App({ resetState, updateBackground }) {
                       />
                     </Grid>
                   </div>
-                  <Grid>丈夫每週協助家事時數(如適用)(小時) : </Grid>
+                  <Grid item xs={12}>
+                    丈夫每週協助家事時數(如適用)(小時) :{" "}
+                  </Grid>
                   <Grid item xs={12}>
                     <Field
                       required
@@ -677,9 +680,13 @@ function App({ resetState, updateBackground }) {
                     <Button
                       variant="contained"
                       color="primary"
+                      // type="submit"
                       type="submit"
                       disabled={submitting}
-                      onClick={() => handleOnclick(values)}
+                      onClick={() => {
+                        onSubmit(values);
+                      }}
+                      // onClick={() => handleOnclick(values)}
                     >
                       下一頁
                     </Button>
