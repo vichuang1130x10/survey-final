@@ -61,11 +61,19 @@ function App({ part, question, numbers, answerQuiz }) {
   }, [numbers]);
 
   const handleClick = (obj) => {
+    const existNumbers = nums.filter((o) => o.isSelected === true)[0] || {
+      id: "0",
+    };
+    if (obj.id === existNumbers.id) {
+      return;
+    }
+    console.log(obj);
     const newNumbers = nums.map((ele) =>
       ele.id === obj.id
         ? Object.assign({}, { ...obj, isSelected: !obj.isSelected })
         : { ...ele, isSelected: false }
     );
+    console.log(newNumbers);
     const n = newNumbers.filter((ele) => ele.isSelected === true)[0].id;
     answerQuiz(part, question, Number(n));
     updateNumbers(newNumbers);
