@@ -11,7 +11,7 @@ import { Paper } from "@material-ui/core";
 import connect from "./connect";
 import Button from "../../Components/Button";
 
-function App({ part2Id, updatePart2Id }) {
+function App({ part2Id, updatePart2Id, part2AAnswer, part2BAnswer }) {
   const [question, setQuestion] = useState([]);
   const [numbers, updateNumbers] = useState([]);
 
@@ -30,10 +30,20 @@ function App({ part2Id, updatePart2Id }) {
   }, [part2Id]);
 
   const handlePart2Next = () => {
+    console.log("A", part2AAnswer);
+    console.log("B", part2BAnswer);
     if (part2Id === 0) {
-      // updateNumbers([])
+      if (part2AAnswer.includes(0)) {
+        window.alert("請完成全部題目");
+        return;
+      }
       updatePart2Id();
     } else {
+      if (part2BAnswer.includes(0)) {
+        window.alert("請完成全部題目");
+        return;
+      }
+
       updatePart2Id();
       navigate("part3");
     }

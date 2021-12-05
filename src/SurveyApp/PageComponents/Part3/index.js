@@ -6,12 +6,17 @@ import { Part3Adjs, Numbers } from "../../Text";
 import QuestionCard from "../../Components/QuestionCard";
 import AnswerCard from "../../Components/AnswerCard";
 import Button from "../../Components/Button";
+import connect from "./connect";
 
-function App() {
+function App({ part3Answer }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   const handlePart3Next = () => {
+    if (part3Answer.includes(0)) {
+      window.alert("請完成全部題目");
+      return;
+    }
     navigate("/part4");
   };
 
@@ -33,7 +38,7 @@ function App() {
           {Part3Adjs.map((q, i) => (
             <div key={i}>
               <QuestionCard title={q} id={i} />
-              <h4>1 =從來沒有 2 =很少 3=普通 4 =稍微多次 5 =經常</h4>
+              <h4>1 =從來沒有 2 =很少 3=普通 4 =相當多 5 =經常</h4>
               <AnswerCard part={"part3"} question={i} numbers={Numbers} />
             </div>
           ))}
@@ -47,4 +52,4 @@ function App() {
   );
 }
 
-export default App;
+export default connect(App);

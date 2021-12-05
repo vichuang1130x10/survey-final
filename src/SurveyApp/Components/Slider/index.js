@@ -27,7 +27,15 @@ export default function VerticalSlider({ callback, pValue }) {
   };
 
   const handleInputChange = (event) => {
-    setValue(event.target.value === "" ? "" : Number(event.target.value));
+    let n = Number(event.target.value);
+    let num = 0;
+    if (n > 100) {
+      num = 100;
+    } else if (n < 0) {
+      num = 0;
+    }
+
+    setValue(event.target.value === "" ? "" : num);
     callback(event.target.value);
   };
 

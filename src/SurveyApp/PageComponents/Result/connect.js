@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 
 const mapStateToProps = (state) => ({
-  part3Answer: state.app.part3Answer,
+  appState: state.app,
 });
 
 export default connect(mapStateToProps, null);

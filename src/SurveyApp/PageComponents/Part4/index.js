@@ -6,9 +6,14 @@ import QuestionCard from "../../Components/QuestionCard";
 import AnswerCard from "../../Components/AnswerCard";
 import { Part4Questions, Numbers } from "../../Text";
 import Button from "../../Components/Button";
+import connect from "./connect";
 
-function App() {
+function App({ part4Answer }) {
   const handlePart4Next = () => {
+    if (part4Answer.includes(0)) {
+      window.alert("請完成全部題目");
+      return;
+    }
     navigate("/finish");
   };
 
@@ -46,4 +51,4 @@ function App() {
   );
 }
 
-export default App;
+export default connect(App);

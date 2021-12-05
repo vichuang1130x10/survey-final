@@ -11,28 +11,10 @@ import { positiveValuesData, positiveHomeValuesData } from "../../Text";
 const initialState = {
   background: {}, // collect background data when user submit
 
-  part2AAnswer: { 1: "", 2: "", 3: "", 4: "" },
-  part2BAnswer: { 1: "", 2: "", 3: "", 4: "" },
-  part3Answer: {
-    1: "",
-    2: "",
-    3: "",
-    4: "",
-    5: "",
-    6: "",
-    7: "",
-    8: "",
-    9: "",
-    10: "",
-  },
-  Part4Answer: {
-    1: "",
-    2: "",
-    3: "",
-    4: "",
-    5: "",
-    6: "",
-  }, //[1,2,3,4,5,1]
+  part2AAnswer: [0, 0, 0, 0],
+  part2BAnswer: [0, 0, 0, 0],
+  part3Answer: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  part4Answer: [0, 0, 0, 0, 0, 0],
   email: "", // "vic.huang11x@gmail.com"
   part1Id: 0, // 0 - 1
   part2Id: 0, // 0 -1
@@ -40,10 +22,6 @@ const initialState = {
   part1Chars: [], // positiveValuesData or positiveHomeValueData
   part1SelectedChars: { part1A: [], part1B: [] }, // part1A:[{},{},{},{},{}],part1B:[]
   part1Index: 0, // 0 - 15
-  //   part1Of1IdealValue: [],
-  //   part1Of1ReallValue: [],
-  //   part2Of2IdealValue: [],
-  //   part2Of2RealValue: [],
   part2Index: 0, // 0- 3
 };
 
@@ -63,9 +41,6 @@ export default function reducer(state = initialState, action = {}) {
 
     case RESET_PART_1_INDEX:
       return { ...state, part1Index: 0 };
-
-    // case UPDATE_PART1_CHAR_INDEX:
-    //   return { ...state, part1Id: action.index };
 
     case UPDATE_PART1_CHAR_SELECT:
       let selected = Object.assign({}, state.part1SelectedChars);
@@ -169,19 +144,32 @@ export default function reducer(state = initialState, action = {}) {
       }
       return { ...state, part2Id: newId2 };
 
-    case UPDATE_ANSWER_CONTENT:
-      let newState = Object.assign({}, state);
-      if (action.part === "part2") {
-        if (newState.part2Id === 0) {
-        }
-      } else if (action.part === "part3") {
-      } else {
+    case UPDATE_BACKGROUND:
+      return { ...state, background: action.background };
+
+    case ANSWER_QUIZ:
+      if (action.part === "part3") {
+        const newAns = state.part3Answer.map((x) => x);
+        newAns[action.q] = action.n;
+        return { ...state, part3Answer: newAns };
+      } else if (action.part === "part4") {
+        const newAns = state.part4Answer.map((x) => x);
+        newAns[action.q] = action.n;
+        return { ...state, part4Answer: newAns };
+      } else if (action.part === "part2" && state.part2Id === 0) {
+        const newAns = state.part2AAnswer.map((x) => x);
+        newAns[action.q] = action.n;
+        return { ...state, part2AAnswer: newAns };
+      } else if (action.part === "part2" && state.part2Id === 1) {
+        const newAns = state.part2BAnswer.map((x) => x);
+        newAns[action.q] = action.n;
+        return { ...state, part2BAnswer: newAns };
       }
 
-      return newState;
+      return state;
 
-    case UPDATE_BACKGROUND:
-      return { ...state, backgrond: action.backgrond };
+    case SAVE_EMAIL:
+      return { ...state, email: action.text };
 
     default:
       return state;
@@ -209,24 +197,32 @@ export const UPDATE_REAL_VALUE = createActionWithName("UPDATE_REAL_VALUE");
 export const UPDATE_PART1_ID = createActionWithName("UPDATE_PART1_ID");
 export const UPDATE_PART2_ID = createActionWithName("UPDATE_PART2_ID");
 export const RESET_PART_1_INDEX = createActionWithName("RESET_PART_1_INDEX");
-export const UPDATE_ANSWER_CONTENT = createActionWithName(
-  "UPDATE_ANSWER_CONTENT"
-);
 
 export const UPDATE_BACKGROUND = createActionWithName("UPDATE_BACKGROUND");
+export const ANSWER_QUIZ = createActionWithName("ANSWER_QUIZ");
 
-export const updateBackground = (backgrond) => {
+export const SAVE_EMAIL = createActionWithName("SAVE_EMAIL");
+
+export const saveEmail = (text) => {
   return {
-    type: UPDATE_BACKGROUND,
-    backgrond,
+    type: SAVE_EMAIL,
+    text,
   };
 };
 
-export const updateAnswerContent = (part, id) => {
+export const answerQuiz = (part, q, n) => {
   return {
-    type: UPDATE_ANSWER_CONTENT,
+    type: ANSWER_QUIZ,
     part,
-    id,
+    q,
+    n,
+  };
+};
+
+export const updateBackground = (background) => {
+  return {
+    type: UPDATE_BACKGROUND,
+    background,
   };
 };
 

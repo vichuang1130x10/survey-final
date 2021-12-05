@@ -53,7 +53,7 @@ const AnswerContainer = styled.div`
 //   { id: "5", isSelected: false },
 // ];
 
-function App({ part, question, numbers }) {
+function App({ part, question, numbers, answerQuiz }) {
   const [nums, updateNumbers] = useState([]);
 
   React.useEffect(() => {
@@ -66,7 +66,8 @@ function App({ part, question, numbers }) {
         ? Object.assign({}, { ...obj, isSelected: !obj.isSelected })
         : { ...ele, isSelected: false }
     );
-    console.log(newNumbers);
+    const n = newNumbers.filter((ele) => ele.isSelected === true)[0].id;
+    answerQuiz(part, question, Number(n));
     updateNumbers(newNumbers);
   };
   return (

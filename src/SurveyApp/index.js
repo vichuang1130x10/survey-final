@@ -10,6 +10,7 @@ import Part2 from "./PageComponents/Part2";
 import Part3 from "./PageComponents/Part3";
 import Part4 from "./PageComponents/Part4";
 import Finish from "./PageComponents/Finish";
+import Result from "./PageComponents/Result";
 
 function App() {
   return (
@@ -19,7 +20,6 @@ function App() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          minHeight: "100%",
         }}
       >
         <Header />
@@ -32,6 +32,7 @@ function App() {
           <Part3 path="/part3" />
           <Part4 path="/part4" />
           <Finish path="/finish" />
+          <Result path="/result" />
         </Router>
       </div>
     </Provider>

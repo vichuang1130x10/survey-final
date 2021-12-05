@@ -12,6 +12,9 @@ import Row from "../../Components/Row";
 
 import connect from "./connect";
 
+const workText = "工作";
+const homeText = "家庭";
+
 function App({
   // updatePart1CharIndex,
   getPart1Chars,
@@ -113,12 +116,12 @@ function App({
         <hr />
         <div className="text-area">
           <h3>
-            工作方面，妳希望自己是個怎樣的人，或是想要什麼樣子？請從以下列表選岀5個妳在
+            {`${part1Id === 0 ? workText : homeText}`}
+            方面，妳希望自己是個怎樣的人，或是想要什麼樣子？請從以下列表選岀5個妳在
             <u>
-              <strong>工作方面</strong>
+              <strong>{`${part1Id === 0 ? workText : homeText}`}方面</strong>
             </u>
-            希望擁有或達到的特質，無論妳現在是否具備這些特質。然後填寫該特質的反義詞，
-            妳也可以直接運用列表提供的反義詞例子。如果未能在列中選擇到適合的特質，請在空白處填寫。
+            希望擁有或達到的特質，無論妳現在是否具備這些特質。如果未能在列中選擇到適合的特質，請在空白處填寫。
           </h3>
         </div>
       </div>

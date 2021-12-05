@@ -4,13 +4,18 @@ import { TextField } from "final-form-material-ui";
 import { Paper, Grid, Button } from "@material-ui/core";
 import connect from "./connect.js";
 import Back from "../../Components/Back";
+import { navigate } from "@reach/router";
 
-function App() {
-  const handleOnclick = () => {};
+function App({ saveEmail }) {
+  // const handleOnclick = (email) => {
+  //   saveEmail(email);
+  // };
   const onSubmit = async (values) => {
-    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-    await sleep(300);
-    window.alert(JSON.stringify(values, 0, 2));
+    // const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    // await sleep(300);
+    // window.alert(JSON.stringify(values, 0, 2));
+    saveEmail(values.email);
+    navigate("/result");
   };
   const validate = (values) => {
     const errors = {};
@@ -63,14 +68,14 @@ function App() {
                       color="primary"
                       type="submit"
                       disabled={submitting}
-                      onClick={() => handleOnclick()}
+                      // onClick={() => handleOnclick(values.email)}
                     >
                       送出
                     </Button>
                   </Grid>
                 </Grid>
               </Paper>
-              <pre>{JSON.stringify(values, 0, 2)}</pre>
+              {/* <pre>{JSON.stringify(values, 0, 2)}</pre> */}
             </form>
           )}
         />
@@ -80,4 +85,4 @@ function App() {
   );
 }
 
-export default App;
+export default connect(App);

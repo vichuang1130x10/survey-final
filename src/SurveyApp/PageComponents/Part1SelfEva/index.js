@@ -28,23 +28,38 @@ function App({
   }, []);
   const [value1, setValue1] = useState(50);
   const [value2, setValue2] = useState(50);
+  const [isValue1Update, value1HasUpdate] = useState(false);
+  const [isValue2Update, value2HasUpdate] = useState(false);
 
   const handleSlideChange1 = (v) => {
+    value1HasUpdate(true);
     updateRealValue(v);
     setValue1(v);
   };
   const handleSlideChange2 = (v) => {
+    value2HasUpdate(true);
     updateIdealValue(v);
     setValue2(v);
   };
 
   const handleNext = () => {
-    nextPart1CharObj();
-    setValue1(50);
-    setValue2(50);
+    if (isValue1Update && isValue2Update) {
+      nextPart1CharObj();
+      setValue1(50);
+      setValue2(50);
+      value1HasUpdate(false);
+      value2HasUpdate(false);
+    } else {
+      window.alert("評分沒有對錯好壞之分，請以真實感受作答就可");
+    }
   };
 
   const handlePart1Next = () => {
+    if (!isValue1Update || !isValue2Update) {
+      window.alert("評分沒有對錯好壞之分，請以真實感受作答就可");
+      return;
+    }
+
     if (part1Id === 0) {
       updatePart1Id();
       navigate("/part1");
@@ -62,9 +77,9 @@ function App({
         <hr />
         <div className="text-area">
           <h3>
-            以下為妳在工作方面想擁有的特質，另一端為相關反義詞，請在第一條間線標示妳
-            <strong>實際</strong>
-            所處的位置，然後在第二條線妳<strong>希望</strong>自己達到的位置
+            以下為妳在工作方面想擁有的特質，下面另一端為相關反義詞，請在左邊的間線標示妳
+            <strong>實際</strong>所處的位置，然後右邊的間線標示妳
+            <strong>希望</strong>自己達到的位置
           </h3>
         </div>
       </div>
