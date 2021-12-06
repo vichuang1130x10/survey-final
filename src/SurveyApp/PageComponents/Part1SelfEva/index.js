@@ -12,6 +12,9 @@ import {
 
 import connect from "./connect";
 
+const workText = "工作";
+const homeText = "家庭";
+
 function App({
   charObj,
   index,
@@ -77,7 +80,8 @@ function App({
         <hr />
         <div className="text-area">
           <h3>
-            以下為妳在工作方面想擁有的特質，下面另一端為相關反義詞，請在左邊的間線標示妳
+            以下為妳在{`${part1Id === 0 ? workText : homeText}`}
+            方面想擁有的特質，下面另一端為相關反義詞，請在左邊的間線標示妳
             <strong>實際</strong>所處的位置，然後右邊的間線標示妳
             <strong>希望</strong>自己達到的位置
           </h3>
