@@ -84,13 +84,16 @@ function App({ resetState, updateBackground }) {
               >
                 <Paper style={{ padding: 16 }}>
                   <Grid container alignItems="flex-start" spacing={1}>
+                    <Grid className="background-font">
+                      <p className="background-title">年齡 : </p>
+                    </Grid>
                     <Grid item xs={2}>
                       <Field
                         required
                         name="age"
                         component={TextField}
                         type="number"
-                        label="年齡 : "
+                        // label="年齡 : "
                       />
                     </Grid>
                     <Grid item xs={12}>
@@ -219,7 +222,9 @@ function App({ resetState, updateBackground }) {
                         </RadioGroup>
                       </FormControl>
                     </Grid>
-                    <Grid className="background-font">育有子女人數：</Grid>
+                    <Grid className="background-font">
+                      <p className="background-title"> 育有子女人數：</p>
+                    </Grid>
                     <Grid item xs={2}>
                       <Field
                         required
@@ -228,7 +233,9 @@ function App({ resetState, updateBackground }) {
                         type="number"
                       />
                     </Grid>
-                    <Grid className="background-font">最小的子女年齡</Grid>
+                    <Grid className="background-font">
+                      <p className="background-title">最小的子女年齡:</p>
+                    </Grid>
                     <Grid item xs={2}>
                       <Field
                         required
@@ -562,7 +569,10 @@ function App({ resetState, updateBackground }) {
                       </Grid>
                     </div>
                     <Grid item xs={12} className="background-font">
-                      個人收入佔家庭總入息比例(%) :
+                      <p className="background-title">
+                        {" "}
+                        個人收入佔家庭總入息比例(%) :
+                      </p>
                     </Grid>
                     <Grid item xs={2}>
                       <Field
@@ -654,7 +664,10 @@ function App({ resetState, updateBackground }) {
                       </Grid>
                     </div>
                     <Grid item xs={12} className="background-font">
-                      丈夫每週協助家事時數(如適用)(小時) :{" "}
+                      <p className="background-title">
+                        {" "}
+                        丈夫每週協助家事時數(如適用)(小時) :
+                      </p>
                     </Grid>
                     <Grid item xs={12}>
                       <Field

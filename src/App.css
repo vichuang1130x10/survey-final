@@ -22,10 +22,6 @@
   /* box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 10%); */
   margin-bottom: 10px;
   padding: 11px 30px 10px 30px;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
   transition: background 0.4s;
   box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 6%);
   z-index: 100;
@@ -35,7 +31,6 @@
   min-height: 80px;
   margin: 0 auto;
   padding: 0 20px;
-  position: relative;
 }
 /* Landing */
 .landing-title {
@@ -397,7 +392,7 @@ footer {
     overflow: auto;
     padding: 0 40px;
     margin-bottom: 2em;
-    height: 100vh;
+    /* height: 100vh; */
 
     display: flex;
     flex-direction: column;
@@ -405,7 +400,7 @@ footer {
     align-items: center;
     row-gap: 50px;
 
-    min-height: 1000px;
+    /* min-height: 1000px; */
   }
 
   .App-Header {

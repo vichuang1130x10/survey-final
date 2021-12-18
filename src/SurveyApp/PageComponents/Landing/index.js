@@ -43,7 +43,7 @@ export default function App() {
           <p>東吳大學 心理學系</p>
           <p>臨床組研究生</p>
           <p>袁慧萍 敬上</p>
-          <p>指導教授：曾幼 涵博士</p>
+          <p>指導教授：曾幼涵博士</p>
           <p>2021年12月</p>
           <p>聯絡電話：(886-) 0908 452 513 / 電郵：yuensiuping@gmail.com</p>
         </div>

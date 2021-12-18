@@ -71,7 +71,7 @@ function App({ part2Id, updatePart2Id, part2AAnswer, part2BAnswer }) {
           {question.map((q, i) => (
             <div key={i}>
               <QuestionCard title={q} id={i} />
-              <h4>1 =非常不同意 2 =很少 3=普通 4 =同意 5 =非常同意</h4>
+              <h4>1 =非常不同意 2 =不同意 3=普通 4 =同意 5 =非常同意</h4>
               <AnswerCard part={"part2"} question={i} numbers={numbers} />
             </div>
           ))}
