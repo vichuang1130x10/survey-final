@@ -6,7 +6,7 @@ const path = require("path");
 const port = process.env.PORT || 5050;
 
 app.use(express.static("build"));
-app.get("*", (req, res) => {
+app.get("/", (req, res) => {
   req.sendFile(path.resolve(__dirname, "build", "index.html"));
 });
 
