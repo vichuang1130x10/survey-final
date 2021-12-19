@@ -9,6 +9,7 @@ import { positiveValuesData, positiveHomeValuesData } from "../../Text";
   */
 
 const initialState = {
+  ip: "",
   background: {}, // collect background data when user submit
 
   part2AAnswer: [0, 0, 0, 0],
@@ -171,6 +172,9 @@ export default function reducer(state = initialState, action = {}) {
     case SAVE_EMAIL:
       return { ...state, email: action.text };
 
+    case SAVE_USER_IP:
+      return { ...state, ip: action.ip };
+
     default:
       return state;
   }
@@ -202,6 +206,14 @@ export const UPDATE_BACKGROUND = createActionWithName("UPDATE_BACKGROUND");
 export const ANSWER_QUIZ = createActionWithName("ANSWER_QUIZ");
 
 export const SAVE_EMAIL = createActionWithName("SAVE_EMAIL");
+export const SAVE_USER_IP = createActionWithName("SAVE_USER_IP");
+
+export const saveUserIp = (ip) => {
+  return {
+    type: SAVE_USER_IP,
+    ip,
+  };
+};
 
 export const saveEmail = (text) => {
   return {

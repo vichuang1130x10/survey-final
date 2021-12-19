@@ -1,7 +1,7 @@
 import { navigate } from "@reach/router";
 import { Form, Field } from "react-final-form";
 
-import { TextField, Radio, Input } from "final-form-material-ui";
+import { TextField, Radio } from "final-form-material-ui";
 import {
   Paper,
   Grid,
@@ -14,6 +14,7 @@ import {
 import connect from "./connect.js";
 import { title } from "../../Text";
 import React from "react";
+import axios from "axios";
 
 const validate = (values) => {
   const errors = { submitting: true };
@@ -42,9 +43,17 @@ const validate = (values) => {
   }
   return errors;
 };
-function App({ resetState, updateBackground }) {
+function App({ resetState, updateBackground, saveUserIp }) {
+  const [ip, setIP] = React.useState("");
+
+  const getData = async () => {
+    const res = await axios.get("https://geolocation-db.com/json/");
+
+    setIP(res.data.IPv4);
+  };
   React.useEffect(() => {
     resetState();
+    getData();
     window.scrollTo(0, 0);
   }, []);
 
@@ -72,12 +81,11 @@ function App({ resetState, updateBackground }) {
             values,
             errors,
           }) => {
-            console.log(submitting);
-            console.log(errors);
             return (
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
+                  saveUserIp(ip);
                   updateBackground(values);
                   navigate("/part1");
                 }}

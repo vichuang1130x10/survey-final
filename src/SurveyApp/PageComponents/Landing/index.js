@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import styled from "styled-components";
 import { navigate } from "@reach/router";
 import hero from "../../../hero.svg";
 import { title } from "../../Text";
 import Button from "../../Components/Button";
+import axios from "axios";
 
-export default function App() {
+function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -51,3 +51,5 @@ export default function App() {
     </div>
   );
 }
+
+export default App;
