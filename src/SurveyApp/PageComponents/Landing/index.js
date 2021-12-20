@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { navigate } from "@reach/router";
 import hero from "../../../hero.svg";
 import { title } from "../../Text";
 import Button from "../../Components/Button";
-import axios from "axios";
 
 function App() {
   useEffect(() => {
@@ -38,6 +37,7 @@ function App() {
           </div>
         </div>
       </div>
+
       <footer>
         <div className="footer">
           <p>東吳大學 心理學系</p>

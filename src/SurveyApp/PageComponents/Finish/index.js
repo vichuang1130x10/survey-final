@@ -6,14 +6,8 @@ import connect from "./connect.js";
 import Back from "../../Components/Back";
 import { navigate } from "@reach/router";
 
-function App({ saveEmail }) {
-  // const handleOnclick = (email) => {
-  //   saveEmail(email);
-  // };
+function App({ appState, saveEmail }) {
   const onSubmit = async (values) => {
-    // const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-    // await sleep(300);
-    // window.alert(JSON.stringify(values, 0, 2));
     saveEmail(values.email);
     navigate("/result");
   };
