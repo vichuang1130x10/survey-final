@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { Paper } from "@material-ui/core";
 import connect from "./connect";
 
+import thank from "../../../thank.jpeg";
+
 import { db } from "../../../firebase";
 import { collection, addDoc } from "firebase/firestore";
 
@@ -40,11 +42,12 @@ function App({ appState }) {
     <div className="landing-vh">
       <div className="container">
         <div className="landing-title">
-          <h2>結果</h2>
+          <h2>本問卷已經全數完成，感謝妳的細心作答</h2>
         </div>
-        <Paper>
-          <pre>{JSON.stringify(appState, 0, 2)}</pre>
-        </Paper>
+
+        <div className="result-hero">
+          <img src={thank} className="hero" alt="thankphoto" />
+        </div>
       </div>
     </div>
   );

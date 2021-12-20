@@ -270,6 +270,16 @@ footer {
   display: flex;
 }
 
+.result-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.result-hero .hero {
+  width: 100%;
+}
+
 /* for pad */
 @media (max-width: 1100px), print {
   .container {
@@ -326,6 +336,16 @@ footer {
     align-self: flex-start;
   }
   .landing-card .hero {
+    width: 100%;
+  }
+
+  .result-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .result-hero .hero {
     width: 100%;
   }
   footer {
