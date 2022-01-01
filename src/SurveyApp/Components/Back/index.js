@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { navigate } from "@reach/router";
 
+
 const Back = ({ className, thunk }) => (
   <div className={className}>
     <button
@@ -11,6 +12,7 @@ const Back = ({ className, thunk }) => (
         //   : () => {
         //       window.history.back();
         //     }
+    
         () => navigate("/background")
       }
     >

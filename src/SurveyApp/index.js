@@ -1,6 +1,7 @@
 import { Router } from "@reach/router";
 import { Provider } from "react-redux";
-import store from "./data/createStore";
+import { store, persistor }  from "./data/createStore";
+import { PersistGate } from 'redux-persist/integration/react'
 import Header from "./Components/Header";
 import Landing from "./PageComponents/Landing";
 import Background from "./PageComponents/Background";
@@ -15,6 +16,7 @@ import Result from "./PageComponents/Result";
 function App() {
   return (
     <Provider store={store}>
+     <PersistGate loading={1} persistor={persistor}>
       <div
         style={{
           display: "flex",
@@ -35,6 +37,7 @@ function App() {
           <Result path="/result" />
         </Router>
       </div>
+        </PersistGate>
     </Provider>
   );
 }

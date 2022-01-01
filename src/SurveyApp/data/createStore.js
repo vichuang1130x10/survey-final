@@ -1,13 +1,21 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
 import { createLogger } from "redux-logger";
 import reducer from "./appState";
 
 const initialState = {};
+
+const persistConfig = {
+  key: 'root',
+  storage,
+}
 const logger = createLogger();
 
 const rootReducer = combineReducers({
   app: reducer,
 });
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 const composeEnhancers =
   typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
@@ -21,6 +29,7 @@ const enhancer = composeEnhancers(
   // other store enhancers if any
 );
 
-const store = createStore(rootReducer, initialState, enhancer);
+export const store = createStore(persistedReducer, initialState, enhancer);
+export const persistor = persistStore(store)
 
-export default store;
+

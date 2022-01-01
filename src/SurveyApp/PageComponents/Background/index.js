@@ -92,6 +92,39 @@ function App({ resetState, updateBackground, saveUserIp }) {
               >
                 <Paper style={{ padding: 16 }}>
                   <Grid container alignItems="flex-start" spacing={1}>
+                        <Grid item xs={12}>
+                      <FormControl required component="fieldset">
+                        <FormLabel component="legend">
+                          <p className="background-title"> 成長背景：</p>
+                        </FormLabel>
+                        <RadioGroup row>
+                          <FormControlLabel
+                            label="台灣"
+                            control={
+                              <Field
+                                required
+                                name="growup"
+                                component={Radio}
+                                type="radio"
+                                value="台灣"
+                              />
+                            }
+                          />
+                          <FormControlLabel
+                            label="香港"
+                            control={
+                              <Field
+                                required
+                                name="growup"
+                                component={Radio}
+                                type="radio"
+                                value="香港"
+                              />
+                            }
+                          />
+                        </RadioGroup>
+                      </FormControl>
+                    </Grid>
                     <Grid className="background-font">
                       <p className="background-title">年齡 : </p>
                     </Grid>
@@ -204,7 +237,7 @@ function App({ resetState, updateBackground, saveUserIp }) {
                             }
                           />
                           <FormControlLabel
-                            label="大學/專科"
+                            label="大學/專科(文憑/副學士)"
                             control={
                               <Field
                                 required
@@ -216,7 +249,7 @@ function App({ resetState, updateBackground, saveUserIp }) {
                             }
                           />
                           <FormControlLabel
-                            label="研究所以上"
+                            label="研究所(碩士)以上"
                             control={
                               <Field
                                 required
@@ -355,7 +388,7 @@ function App({ resetState, updateBackground, saveUserIp }) {
                             }
                           />
                           <FormControlLabel
-                            label="不動產業"
+                            label="不動產業(地產業)"
                             control={
                               <Field
                                 required
@@ -386,7 +419,7 @@ function App({ resetState, updateBackground, saveUserIp }) {
                                 name="occupation"
                                 component={Radio}
                                 type="radio"
-                                value="公共行政及國防"
+                                value="公共行政及國防(公務人員)"
                               />
                             }
                           />

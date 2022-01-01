@@ -24,6 +24,7 @@ const initialState = {
   part1SelectedChars: { part1A: [], part1B: [] }, // part1A:[{},{},{},{},{}],part1B:[]
   part1Index: 0, // 0 - 15
   part2Index: 0, // 0- 3
+  isDataSend:false,
 };
 
 const createActionWithName = (name) => `app/tasks/${name}`;
@@ -175,6 +176,11 @@ export default function reducer(state = initialState, action = {}) {
     case SAVE_USER_IP:
       return { ...state, ip: action.ip };
 
+      case IS_DATA_SEND:
+      return {...state, isDataSend:action.isSend}
+
+    
+
     default:
       return state;
   }
@@ -207,6 +213,18 @@ export const ANSWER_QUIZ = createActionWithName("ANSWER_QUIZ");
 
 export const SAVE_EMAIL = createActionWithName("SAVE_EMAIL");
 export const SAVE_USER_IP = createActionWithName("SAVE_USER_IP");
+export const IS_DATA_SEND = createActionWithName("IS_DATA_SEND");
+
+
+
+
+
+export const setIsDataSend = isSend =>{
+  return {
+    type:IS_DATA_SEND,
+    isSend,
+  }
+}
 
 export const saveUserIp = (ip) => {
   return {

@@ -23,7 +23,8 @@ function App({ appState, saveEmail }) {
     window.scrollTo(0, 0);
   }, []);
 
-  return (
+  return   appState.ip !== "" ? (
+   
     <div className="container">
       <Back className="return-icon" />
       <div className="part-i-title">
@@ -75,6 +76,12 @@ function App({ appState, saveEmail }) {
         />
       </div>
       <div style={{ marginTop: "100px", height: "50px" }}></div>
+    </div>
+  ):(
+    <div>
+      <button className="button" onClick={() => navigate("/")}>
+        網路不穩定時請重新做答
+      </button>
     </div>
   );
 }

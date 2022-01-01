@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { Paper } from "@material-ui/core";
 import connect from "./connect";
 
@@ -7,7 +7,11 @@ import thank from "../../../thank.jpeg";
 import { db } from "../../../firebase";
 import { collection, addDoc } from "firebase/firestore";
 
-function App({ appState }) {
+
+
+function App({ appState ,isDataSend,setIsDataSend}) {
+
+
   const reportsCollectionRef = collection(db, "reports");
   const createReport = async () => {
     const {
@@ -31,11 +35,15 @@ function App({ appState }) {
       part4Answer,
     });
 
-    await addDoc(reportsCollectionRef, { survey: jsonObj });
+    await addDoc(reportsCollectionRef, { survey: jsonObj,time:Date.now()});
+    setIsDataSend(true)
   };
   useEffect(() => {
     window.scrollTo(0, 0);
-    createReport();
+       if(isDataSend !== true){
+            createReport();
+       }
+  
   }, []);
 
   return (
