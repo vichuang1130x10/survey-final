@@ -412,14 +412,14 @@ function App({ resetState, updateBackground, saveUserIp }) {
                             }
                           />
                           <FormControlLabel
-                            label="公共行政及國防"
+                            label="公共行政及國防(公務人員)"
                             control={
                               <Field
                                 required
                                 name="occupation"
                                 component={Radio}
                                 type="radio"
-                                value="公共行政及國防(公務人員)"
+                                value="公共行政及國防"
                               />
                             }
                           />
