@@ -92,7 +92,7 @@ function App({ resetState, updateBackground, saveUserIp }) {
               >
                 <Paper style={{ padding: 16 }}>
                   <Grid container alignItems="flex-start" spacing={1}>
-                        <Grid item xs={12}>
+                    <Grid item xs={12}>
                       <FormControl required component="fieldset">
                         <FormLabel component="legend">
                           <p className="background-title"> 成長背景：</p>
@@ -125,17 +125,21 @@ function App({ resetState, updateBackground, saveUserIp }) {
                         </RadioGroup>
                       </FormControl>
                     </Grid>
-                    <Grid className="background-font">
-                      <p className="background-title">年齡 : </p>
-                    </Grid>
-                    <Grid item xs={2}>
-                      <Field
-                        required
-                        name="age"
-                        component={TextField}
-                        type="number"
-                        // label="年齡 : "
-                      />
+                    <Grid>
+                      <FormControl required component="fieldset">
+                        <Grid className="background-font">
+                          <FormLabel component="legend">
+                            <p className="background-title">年齡 : </p>
+                          </FormLabel>
+
+                          <Field
+                            required
+                            name="age"
+                            component={TextField}
+                            type="number"
+                          />
+                        </Grid>
+                      </FormControl>
                     </Grid>
                     <Grid item xs={12}>
                       <FormControl required component="fieldset">
@@ -264,7 +268,13 @@ function App({ resetState, updateBackground, saveUserIp }) {
                       </FormControl>
                     </Grid>
                     <Grid className="background-font">
-                      <p className="background-title"> 育有子女人數：</p>
+                      <p className="background-title">
+                        {" "}
+                        育有子女人數：{" "}
+                        <span style={{ color: "#999", fontSize: "14px" }}>
+                          * (必填)
+                        </span>
+                      </p>
                     </Grid>
                     <Grid item xs={2}>
                       <Field
@@ -275,7 +285,12 @@ function App({ resetState, updateBackground, saveUserIp }) {
                       />
                     </Grid>
                     <Grid className="background-font">
-                      <p className="background-title">最小的子女年齡:</p>
+                      <p className="background-title">
+                        最小的子女年齡:{" "}
+                        <span style={{ color: "#999", fontSize: "14px" }}>
+                          * (必填)
+                        </span>
+                      </p>
                     </Grid>
                     <Grid item xs={2}>
                       <Field
@@ -556,7 +571,7 @@ function App({ resetState, updateBackground, saveUserIp }) {
                       </FormControl>
                     </Grid>
                     <Grid item xs={12}>
-                      <FormControl component="fieldset">
+                      <FormControl component="fieldset" required>
                         <FormLabel component="legend">
                           <p className="background-title"> 工作性質 : </p>
                         </FormLabel>
@@ -610,10 +625,14 @@ function App({ resetState, updateBackground, saveUserIp }) {
                       </Grid>
                     </div>
                     <Grid item xs={12} className="background-font">
-                      <p className="background-title">
-                        {" "}
-                        個人收入佔家庭總入息比例(%) :
-                      </p>
+                      <FormControl component="fieldset" required>
+                        <FormLabel component="legend">
+                          <p className="background-title">
+                            {" "}
+                            個人收入佔家庭總入息比例(%) :{" "}
+                          </p>
+                        </FormLabel>
+                      </FormControl>
                     </Grid>
                     <Grid item xs={2}>
                       <Field
@@ -705,10 +724,13 @@ function App({ resetState, updateBackground, saveUserIp }) {
                       </Grid>
                     </div>
                     <Grid item xs={12} className="background-font">
-                      <p className="background-title">
-                        {" "}
-                        丈夫每週協助家事時數(如適用)(小時) :
-                      </p>
+                      <FormControl component="fieldset" required>
+                        <FormLabel component="legend">
+                          <p className="background-title">
+                            丈夫每週協助家事時數(如適用)(小時) :
+                          </p>
+                        </FormLabel>
+                      </FormControl>
                     </Grid>
                     <Grid item xs={12}>
                       <Field
@@ -720,7 +742,7 @@ function App({ resetState, updateBackground, saveUserIp }) {
                     </Grid>
 
                     <Grid item xs={12}>
-                      <FormControl component="fieldset">
+                      <FormControl component="fieldset" required>
                         <FormLabel component="legend">
                           <p className="background-title">
                             {" "}
